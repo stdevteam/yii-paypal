@@ -11,8 +11,8 @@
 			'apiSignature' => 'YOUR_API_SIGNATURE',
 			'apiLive' => false,
 			
-			'returnUrl' => 'paypal/confirm/',
-			'cancelUrl' => 'paypal/cancel/',
+			'returnUrl' => 'paypal/confirm/', //or 'index.php?r=paypal/confirm/' if url management component is not enabled
+			'cancelUrl' => 'paypal/cancel/', //or 'index.php?r=paypal/cancel/' if url management component is not enabled
 		),
 	),
 );

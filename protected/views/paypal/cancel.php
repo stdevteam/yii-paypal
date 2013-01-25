@@ -1,6 +1,6 @@
 <?php
 $this->breadcrumbs=array(
-	'Paypa'=>array('/paypal'),
+	'Paypal'=>array('/paypal'),
 	'Cancel',
 );
 ?>

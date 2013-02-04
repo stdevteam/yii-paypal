@@ -32,6 +32,22 @@ class Paypal extends CComponent{
     public $apiLive = false;
     public $returnUrl;
     public $cancelUrl;
+
+    /**
+    # Default currency to use;
+     */
+    public $currency = 'USD';
+
+    /**
+    # Default description to use;
+     */
+    public $defaultDescription = '';
+
+    /**
+    # Default Quantity to use;
+     */
+    public $defaultQuantity = '1';
+
     /** 
     # Endpoint: this is the server URL which you have to connect for submitting your API request. 
     */ 
@@ -101,7 +117,7 @@ class Paypal extends CComponent{
         $zip = urlencode($paymentInfo['Member']['billing_zip']); 
          
         $amount = urlencode($paymentInfo['Order']['theTotal']); 
-        $currencyCode="USD"; 
+        $currencyCode=$this->currency; 
         $paymentType=urlencode('Sale'); 
          
         $ip=$_SERVER['REMOTE_ADDR']; 
@@ -131,17 +147,17 @@ class Paypal extends CComponent{
         if($paymentInfo['Order']['description']){
             $desc = urlencode($paymentInfo['Order']['description']);
         }else{
-            $desc = '';
+            $desc = $this->defaultDescription;
         }
         //quantity
         if($paymentInfo['Order']['quantity']){
             $quantity = urlencode($paymentInfo['Order']['quantity']);
         }else{
-            $quantity = '1';
+            $quantity = $this->defaultQuantity;
         }
         
         $paymentType=urlencode('Sale'); 
-        $currencyCode=urlencode('USD'); 
+        $currencyCode=urlencode($this->currency); 
         
         $number = time();
          
@@ -161,7 +177,7 @@ class Paypal extends CComponent{
      
     public function DoExpressCheckoutPayment($paymentInfo=array()){ 
         $paymentType='Sale'; 
-        $currencyCode='USD'; 
+        $currencyCode=$this->currency; 
         $serverName = $_SERVER['SERVER_NAME']; 
         $nvpstr='&TOKEN='.urlencode($paymentInfo['TOKEN']).'&PAYERID='.urlencode($paymentInfo['PAYERID']).'&PAYMENTACTION='.urlencode($paymentType).'&AMT='.urlencode($paymentInfo['ORDERTOTAL']).'&CURRENCYCODE='.urlencode($currencyCode).'&IPADDRESS='.urlencode($serverName); 
         $resArray=$this->hash_call("DoExpressCheckoutPayment",$nvpstr); 

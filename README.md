@@ -22,5 +22,17 @@ After place the Paypal configuration array inside your 'components' definitions.
 	
 	'returnUrl' => 'paypal/confirm/', //or 'index.php?r=paypal/confirm/' if url management component is not enabled
 	'cancelUrl' => 'paypal/cancel/', //or 'index.php?r=paypal/cancel/' if url management component is not enabled
+	
+    // Default currency to use, if not set USD is the default
+    'currency' => 'USD',
+
+    // Default description to use, defaults to an empty string
+    //'defaultDescription' => '',
+
+    // Default Quantity to use, defaults to 1
+    //public $defaultQuantity = '1';
+
+	//The version of the paypal api to use, defaults to '3.0' (review PayPal documentation to include a valid API version)
+    //'version' => '3.0',
 ),
 ```

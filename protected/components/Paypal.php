@@ -30,7 +30,14 @@ class Paypal extends CComponent{
     */ 
     public $apiSignature;
     public $apiLive = false;
+	/**
+	# The url (relative to base url) to return the customer after a successful payment
+	*/
     public $returnUrl;
+	
+	/**
+	# The url (relative to base url) to return the customer if he/she cancels the payment
+	*/
     public $cancelUrl;
 
     /**

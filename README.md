@@ -30,7 +30,7 @@ After place the Paypal configuration array inside your 'components' definitions.
     //'defaultDescription' => '',
 
     // Default Quantity to use, defaults to 1
-    //public $defaultQuantity = '1';
+    //'defaultQuantity' => '1',
 
 	//The version of the paypal api to use, defaults to '3.0' (review PayPal documentation to include a valid API version)
     //'version' => '3.0',

@@ -96,8 +96,8 @@ class Paypal extends CComponent{
         }
 	
         //set return and cancel urls
-        $this->returnUrl = Yii::app()->request->getBaseUrl(true).'/'.$this->returnUrl;
-        $this->cancelUrl = Yii::app()->request->getBaseUrl(true).'/'.$this->cancelUrl;
+        $this->returnUrl = Yii::app()->createAbsoluteUrl($this->returnUrl);
+        $this->cancelUrl = Yii::app()->createAbsoluteUrl($this->cancelUrl);
     }
     
     public function __construct(){ 

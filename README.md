@@ -20,8 +20,8 @@ After place the Paypal configuration array inside your 'components' definitions.
 	'apiSignature' => 'YOUR_API_SIGNATURE',
 	'apiLive' => false,
 	
-	'returnUrl' => 'paypal/confirm/', //or 'index.php?r=paypal/confirm/' if url management component is not enabled
-	'cancelUrl' => 'paypal/cancel/', //or 'index.php?r=paypal/cancel/' if url management component is not enabled
+	'returnUrl' => 'paypal/confirm/', //regardless of url management component
+	'cancelUrl' => 'paypal/cancel/', //regardless of url management component
 	
     // Default currency to use, if not set USD is the default
     'currency' => 'USD',

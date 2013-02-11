@@ -84,13 +84,8 @@ class Paypal extends CComponent{
     public $version = '3.0';
     
     public function init(){
-        //set return and cancel urls
-        $this->returnUrl = Yii::app()->request->getBaseUrl(true).'/'.$this->returnUrl;
-        $this->cancelUrl = Yii::app()->request->getBaseUrl(true).'/'.$this->cancelUrl;
-    }
-    
-    public function __construct(){ 
-        if((bool)$this->apiLive === true){
+		//Whether we are in sandbox or in live environment
+		if((bool)$this->apiLive === true){
             //live
             $this->paypalUrl = 'https://www.paypal.com/webscr&cmd=_express-checkout&useraction=commit&token='; 
             $this->endPoint = 'https://api-3t.paypal.com/nvp';
@@ -99,6 +94,14 @@ class Paypal extends CComponent{
             $this->paypalUrl = 'https://www.sandbox.paypal.com/webscr&cmd=_express-checkout&useraction=commit&token=';
             $this->endPoint = 'https://api-3t.sandbox.paypal.com/nvp';
         }
+	
+        //set return and cancel urls
+        $this->returnUrl = Yii::app()->request->getBaseUrl(true).'/'.$this->returnUrl;
+        $this->cancelUrl = Yii::app()->request->getBaseUrl(true).'/'.$this->cancelUrl;
+    }
+    
+    public function __construct(){ 
+        
     }
     
     

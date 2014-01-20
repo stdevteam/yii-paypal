@@ -284,4 +284,20 @@ class Paypal extends CComponent{
          } 
         return $nvpArray; 
     }
+
+    /**
+     * This function helps to refund the transaction by payerId and transactionId
+     * TransactionId returned by {@see DoExpressCheckoutPayment}
+     * @link https://developer.paypal.com/docs/classic/api/merchant/RefundTransaction_API_Operation_NVP/
+     *
+     * @param array $paymentInfo
+     * @return array
+     */
+    public function RefundTransaction($paymentInfo=array())
+    {
+        $currencyCode=$this->currency;
+        $nvpstr='&PAYERID='.urlencode($paymentInfo['PAYERID']).'&TRANSACTIONID='.urlencode($paymentInfo['TRANSACTIONID']).'&CURRENCYCODE='.urlencode($currencyCode).'&REFUNDTYPE='.urlencode('Full');
+        $resArray=$this->hash_call("RefundTransaction",$nvpstr);
+        return $resArray;
+    }
 }

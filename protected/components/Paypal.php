@@ -215,7 +215,8 @@ class Paypal extends CComponent{
         $API_UserName = $this->apiUsername; 
         $API_Password = $this->apiPassword; 
         $API_Signature = $this->apiSignature; 
-        $API_Endpoint = $this->endPoint; 
+        $API_Endpoint = $this->endPoint;
+        $API_ButtonSource = 'AngellEYE_SP_Yii';
         $version = $this->version; 
          
         //setting the curl parameters. 
@@ -237,7 +238,7 @@ class Paypal extends CComponent{
         }
      
         //NVPRequest for submitting to server 
-        $nvpreq="METHOD=".urlencode($methodName)."&VERSION=".urlencode($version)."&PWD=".urlencode($API_Password)."&USER=".urlencode($API_UserName)."&SIGNATURE=".urlencode($API_Signature).$nvpStr;
+        $nvpreq="METHOD=".urlencode($methodName)."&BUTTONSOURCE=".urlencode($API_ButtonSource)."&VERSION=".urlencode($version)."&PWD=".urlencode($API_Password)."&USER=".urlencode($API_UserName)."&SIGNATURE=".urlencode($API_Signature).$nvpStr;
      
         //setting the nvpreq as POST FIELD to curl 
         curl_setopt($ch,CURLOPT_POSTFIELDS,$nvpreq); 
